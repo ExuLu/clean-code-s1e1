@@ -8,12 +8,14 @@ var completedTasksHolder=document.getElementById("completed-tasks");
 
 function setDefaultHandlers() {
     addButton.addEventListener("click", addTask);
-    addEventListeners(incompleteTaskHolder);
-    addEventListeners(completedTasksHolder);
+    addEventListeners(incompleteTaskHolder.children);
+    addEventListeners(completedTasksHolder.children);
 }
 
 function addEventListeners(elements) {
-    elements.forEach(element => bindTaskEvents(element));
+    for (let i = 0; i < elements.length; i++) {
+        bindTaskEvents(elements[i]);
+    }
 }
 
 function appendChildElementToParentElement(parentElement, childElements){
