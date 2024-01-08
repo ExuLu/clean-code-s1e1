@@ -152,7 +152,7 @@
   transform: rotateZ(0);
 }
 
-#completed-tasks .task-item__name {
+.task-item__name-complete {
   text-decoration: line-through;
   color: #888;
 }
