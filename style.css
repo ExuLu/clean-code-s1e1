@@ -18,7 +18,7 @@ body {
 }
 
 @media (max-width:768px) {
-  .aaa { 
+  .logo { 
     text-align: center;
   }
 }
