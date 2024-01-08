@@ -132,11 +132,6 @@ function taskCheck() {
 }
 
 
-
-var ajaxRequest=function(){
-    console.log("AJAX Request");
-}
-
 //The glue to hold it all together.
 
 
