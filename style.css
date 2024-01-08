@@ -52,7 +52,8 @@
   list-style: none;
 }
 
-input,
+.task-input,
+.task-completion,
 .main-button{
   outline: none;
 }
@@ -105,7 +106,7 @@ input,
   margin: 0 0 20px;
 }
 
-input#new-task {
+.task-input#new-task {
   width: 318px;
 }
 
@@ -124,7 +125,7 @@ input#new-task {
   vertical-align: middle;
 }
 
-.task-item > input[type="checkbox"] {
+.task-item > .task-completion {
   margin: 0 10px;
 }
 
@@ -135,7 +136,7 @@ input#new-task {
   width: 226px;
 }
 
-.task-item >    input[type="text"] {
+.task-item > .task-input {
   width: 226px;
 }
 
@@ -156,11 +157,11 @@ input#new-task {
 }
 
 /* Edit Task */
-.task-item input[type=text] {
+.task-item .task-input {
   display: none;
 }
 
-.edit-mode input[type=text] {
+.edit-mode .task-input {
   display: inline-block;
   width: 224px;
 }

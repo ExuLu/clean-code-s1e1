@@ -38,6 +38,7 @@ var createNewTaskElement=function(taskString){
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+    checkBox.className="task-completion";
     editInput.type="text";
     editInput.className="task task-input";
 
@@ -156,7 +157,7 @@ addButton.addEventListener("click",ajaxRequest);
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
-    var checkBox=taskListItem.querySelector("input[type=checkbox]");
+    var checkBox=taskListItem.querySelector(".task-completion");
     var editButton=taskListItem.querySelector(".edit-button");
     var deleteButton=taskListItem.querySelector(".delete-button");
 
