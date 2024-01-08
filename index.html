@@ -16,15 +16,15 @@
         <div class="new-task__row-wrapper">
           <input 
             id="new-task"
-            class="task task__input"
+            class="task task__input new-task__input"
             type="text"
           >
           <button class="task__main-btn new-task__add-btn">Add</button>
         </div>
       </section>
-      <section class="todo-tasks-list">
-        <p class="task-list__title">Todo</p>
-        <ul id="incomplete-tasks" class="task-list">
+      <section class="todo-tasks-list tasks-list">
+        <p class="tasks-list__title">Todo</p>
+        <ul id="incomplete-tasks" class="tasks-list__list">
           <li class="task-item">
             <input type="checkbox" class="task-completion">
             <label class="task task-name">Pay Bills</label>
@@ -49,9 +49,9 @@
           </li>
         </ul>
       </section>
-      <section class="complete-tasks-list">
-        <p class="task-list__title">Completed</p>
-        <ul id="completed-tasks" class="task-list">
+      <section class="complete-tasks-list tasks-list">
+        <p class="tasks-list__title">Completed</p>
+        <ul id="completed-tasks" class="tasks-list__list">
           <li class="task-item">
             <input type="checkbox" class="task-completion" checked>
             <label class="task task-name">See the Doctor</label>
