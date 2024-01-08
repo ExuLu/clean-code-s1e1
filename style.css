@@ -47,7 +47,7 @@
   padding: 0px;
 }
 
-li, 
+.task-item, 
 .task-title {
   list-style: none;
 }
