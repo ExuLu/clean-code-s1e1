@@ -1,10 +1,10 @@
 // Problem: User interaction does not provide the correct results.
 // Solution: Add interactivity so the user can manage daily tasks.
 
-var taskInput=document.getElementById("new-task");
-var addButton=document.querySelector(".new-task__add-btn");
-var incompleteTaskHolder=document.getElementById("incomplete-tasks");
-var completedTasksHolder=document.getElementById("completed-tasks");
+var taskInput = document.getElementById("new-task");
+var addButton = document.querySelector(".new-task__add-btn");
+var incompleteTaskHolder = document.getElementById("incomplete-tasks");
+var completedTasksHolder = document.getElementById("completed-tasks");
 
 function setDefaultHandlers() {
     addButton.addEventListener("click", addTask);
@@ -77,6 +77,18 @@ function toggleStates(elements, states) {
     elements.forEach((element, index) => element.classList.toggle(states[index]));
 }
 
+function toggleTextAndButton(editMode, label, editBtn, editInput) {
+    if (editMode) {
+        // Add edited text to label
+        label.innerText = editInput.value;
+        editBtn.innerText = "Edit";
+    } else {
+        // Add actual text to input
+        editInput.value = label.innerText;
+        editBtn.innerText = "Save";
+    }
+}
+
 function switchTaskToAnotherList(list, listItem) {
     if (list === 'completed-tasks') { 
         incompleteTaskHolder.appendChild(listItem);
@@ -86,13 +98,13 @@ function switchTaskToAnotherList(list, listItem) {
 }
 
 function addTask() {
-    //Create a new list item with the text from the #new-task input:
+    //Create a new task with the user texts
     if (!taskInput.value) return;
     var listItem = createNewTaskElement(taskInput.value);
 
     incompleteTaskHolder.appendChild(listItem);
 
-    // Add eventHandlers to buttons in new listItem
+    // Add eventHandlers to new task
     bindTaskEvents(listItem);
 
     // Delete text from input after adding new task
@@ -100,22 +112,14 @@ function addTask() {
 }
 
 function editTask() {
-    var listItem=this.parentNode;
+    var listItem = this.parentNode;
 
     const [editInput, label, editBtn] = selectElements (
         listItem, ['.task-item__input', '.task-item__name', '.task-item__edit-btn']
     );
-    var containsClass=listItem.classList.contains("task-item_edit-mode");
+    var containsEditClass = listItem.classList.contains("task-item_edit-mode");
 
-    if (containsClass) {
-        // Add edited text to label
-        label.innerText=editInput.value;
-        editBtn.innerText="Edit";
-    } else {
-        // Add actual text to input
-        editInput.value=label.innerText;
-        editBtn.innerText="Save";
-    }
+    toggleTextAndButton(containsEditClass, label, editBtn, editInput);
 
     toggleStates([listItem, editInput, label], ["task-item_edit-mode", 'task-item__input_edit-mode', 'task-item__name_edit-mode'])
     
