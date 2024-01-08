@@ -4,23 +4,23 @@
   font-family: Lato, sans-serif;
 }
 
-.logo {
+.header {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
 
-.logo-img {
+.header__img {
   width: 100%;
 }
 
-.logo-link {
+.header__link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width:768px) {
-  .logo { 
+  .header { 
     text-align: center;
   }
 }
