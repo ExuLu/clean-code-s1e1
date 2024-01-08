@@ -22,7 +22,7 @@
           <button class="main-btn new-task__add-btn">Add</button>
         </div>
       </section>
-      <section class="todo-tasks-list tasks-list">
+      <section class="tasks-list">
         <p class="tasks-list__title">Todo</p>
         <ul id="incomplete-tasks" class="tasks-list__list">
           <li class="task-item">
@@ -34,13 +34,13 @@
               <img src="./remove.svg" class="main-btn__img" alt="delete button">
             </button>
           </li>
-          <li class="edit-mode task-item">
+          <li class="task-item task-item_edit-mode">
             <input type="checkbox" class="task-item__checkbox">
-            <label class="task-item__name">Go Shopping</label>
+            <label class="task-item__name task-item__name_edit-mode">Go Shopping</label>
             <input 
               type="text" 
               value="Go Shopping" 
-              class="task-item__input"
+              class="task-item__input task-item__input_edit-mode"
             >
             <button class="task-item__edit-btn main-btn">Save</button>
             <button class="task-item__delete-btn main-btn">
@@ -49,7 +49,7 @@
           </li>
         </ul>
       </section>
-      <section class="complete-tasks-list tasks-list">
+      <section class="tasks-list">
         <p class="tasks-list__title">Completed</p>
         <ul id="completed-tasks" class="tasks-list__list">
           <li class="task-item">

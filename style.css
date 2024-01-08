@@ -138,7 +138,7 @@
   width: 226px;
 }
 
-.task-item > .task-item__input {
+.task-item__input {
   width: 226px;
 }
 
@@ -157,15 +157,15 @@
   color: #888;
 }
 
-.task-item .task-item__input {
+.task-item__input {
   display: none;
 }
 
-.edit-mode .task-item__input {
+.task-item__input_edit-mode {
   display: inline-block;
   width: 224px;
 }
 
-.edit-mode .task-item__name {
+.task-item__name_edit-mode {
   display: none;
 }
