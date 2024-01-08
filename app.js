@@ -1,10 +1,10 @@
 // Problem: User interaction does not provide the correct results.
 // Solution: Add interactivity so the user can manage daily tasks.
 
-var taskInput = document.getElementById("new-task");
-var addButton = document.querySelector(".new-task__add-btn");
-var incompleteTaskHolder = document.getElementById("incomplete-tasks");
-var completedTasksHolder = document.getElementById("completed-tasks");
+const taskInput = document.getElementById("new-task");
+const addButton = document.querySelector(".new-task__add-btn");
+const incompleteTaskHolder = document.getElementById("incomplete-tasks");
+const completedTasksHolder = document.getElementById("completed-tasks");
 
 function setDefaultHandlers() {
     addButton.addEventListener("click", addTask);
@@ -110,12 +110,12 @@ function addTask() {
 }
 
 function editTask() {
-    var listItem = this.parentNode;
+    const listItem = this.parentNode;
 
     const [editInput, label, editBtn] = selectElements (
         listItem, ['.task-item__input', '.task-item__name', '.task-item__edit-btn']
     );
-    var containsEditClass = listItem.classList.contains("task-item_edit-mode");
+    const containsEditClass = listItem.classList.contains("task-item_edit-mode");
 
     editBtn.innerText = containsEditClass ? 'Edit' : 'Save';
     
@@ -126,17 +126,17 @@ function editTask() {
 };
 
 function deleteTask() {
-    var listItem=this.parentNode;
-    var ul=listItem.parentNode;
+    const listItem = this.parentNode;
+    const ul = listItem.parentNode;
     ul.removeChild(listItem);
 }
 
 function taskCheck() {
 
     //Append the task to the todo-list
-    var listItem = this.parentNode;
+    const listItem = this.parentNode;
     const taskList = listItem.closest('.tasks-list__list').id;
-    var [label] = selectElements(listItem, ['.task-item__name']);
+    const [label] = selectElements(listItem, ['.task-item__name']);
 
     switchTaskToAnotherList(taskList, listItem);
 
