@@ -56,11 +56,11 @@
 .task-item__input,
 .new-task__input,
 .task-item__checkbox,
-.task__main-btn{
+.main-btn{
   outline: none;
 }
 
-.task__main-btn {
+.main-btn {
   background: none;
   border: 0px;
   color: #888;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.task__main-btn:hover {
+.main-btn:hover {
   color: #3a3a3a;
 }
 
@@ -142,13 +142,13 @@
   width: 226px;
 }
 
-.delete-btn-img {
+.main-btn__img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-.delete-btn-img:hover {
+.main-btn__img:hover {
   transform: rotateZ(0);
 }
 
