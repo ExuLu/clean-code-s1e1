@@ -1,13 +1,12 @@
-//Problem: User interaction does not provide the correct results.
-//Solution: Add interactivity so the user can manage daily tasks.
-//Break things down into smaller steps and take each step at a time.
-
-// Event handling, user interaction is what starts the code execution.
+// Problem: User interaction does not provide the correct results.
+// Solution: Add interactivity so the user can manage daily tasks.
 
 var taskInput=document.getElementById("new-task");
 var addButton=document.querySelector(".new-task__add-btn");
 var incompleteTaskHolder=document.getElementById("incomplete-tasks");
 var completedTasksHolder=document.getElementById("completed-tasks");
+
+addButton.addEventListener("click", addTask);
 
 function appendChildElementToParentElement(parentElement, childElements){
     childElements.forEach(element => parentElement.appendChild(element));
@@ -131,7 +130,6 @@ function taskCheck() {
     toggleStates([label], ['task-item__name-complete']);
 }
 
-addButton.addEventListener("click", addTask);
 
 var bindTaskEvents = function(taskListItem){
     console.log("bind list item events");
