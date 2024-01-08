@@ -1,80 +1,76 @@
-//Document is the DOM can be accessed in the console with document.window.
-// Tree is from the top, html, body, p etc.
-
 //Problem: User interaction does not provide the correct results.
 //Solution: Add interactivity so the user can manage daily tasks.
 //Break things down into smaller steps and take each step at a time.
 
-
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
-var addButton=document.querySelector(".new-task__add-btn");//first button
-var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+var taskInput=document.getElementById("new-task");
+var addButton=document.querySelector(".new-task__add-btn");
+var incompleteTaskHolder=document.getElementById("incomplete-tasks");
+var completedTasksHolder=document.getElementById("completed-tasks");
+
+function appendChildElementToParentElement(parentElement, childElements){
+    childElements.forEach(element => parentElement.appendChild(element));
+};
+
+function createNewElement (elements) {
+    const createdElements = elements.map(element => document.createElement(element));
+    return createdElements;
+}
+
+function createAttributes(element, attributes) {
+    element.className = attributes.className || '';
+    element.type = attributes.type || '';
+    element.src = attributes.src || '';
+    element.alt = attributes.alt || '';
+}
+
+function createNewTaskElement (taskString){
+
+    const [
+        listItem,
+        checkBox,
+        label,
+        editInput,
+        editButton,
+        deleteButton,
+        deleteButtonImg,
+    ] = createNewElement(['li', 'input', 'label', 'input', 'button', 'button', 'img'])
 
 
-//New task list item
-var createNewTaskElement=function(taskString){
+    createAttributes(listItem, {className: 'task-item'});
 
-    var listItem=document.createElement("li");
+    label.innerText = taskString;
+    createAttributes(label, {className: 'task task-item__name'});
 
-    //input (checkbox)
-    var checkBox=document.createElement("input");//checkbx
-    //label
-    var label=document.createElement("label");//label
-    //input (text)
-    var editInput=document.createElement("input");//text
-    //button.edit
-    var editButton=document.createElement("button");//edit button
+    createAttributes(checkBox, {type: 'checkbox', className: 'task-item__checkbox'});
 
-    //button.delete
-    var deleteButton=document.createElement("button");//delete button
-    var deleteButtonImg=document.createElement("img");//delete button image
+    createAttributes(editInput, {type: 'text', className: 'task task-item__input'});
 
-    listItem.className = 'task-item';
-    label.innerText=taskString;
-    label.className='task task-item__name';
+    editButton.innerText = "Edit";
+    createAttributes(editButton, {className: 'task-item__edit-btn main-btn'});
 
-    //Each elements, needs appending
-    checkBox.type="checkbox";
-    checkBox.className="task-item__checkbox";
-    editInput.type="text";
-    editInput.className="task task-item__input";
+    createAttributes(deleteButton, {className: 'task-item__delete-btn main-btn'});
 
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="task-item__edit-btn main-btn";
-
-    deleteButton.className="task-item__delete-btn main-btn";
-    deleteButtonImg.src='./remove.svg';
-    deleteButtonImg.alt='delete button';
-    deleteButtonImg.className = 'main-btn__img'
+    createAttributes(deleteButtonImg, {src: './remove.svg', alt: 'delete button', className: 'main-btn__img'});
     deleteButton.appendChild(deleteButtonImg);
 
-
-    //and appending.
-    listItem.appendChild(checkBox);
-    listItem.appendChild(label);
-    listItem.appendChild(editInput);
-    listItem.appendChild(editButton);
-    listItem.appendChild(deleteButton);
+    appendChildElementToParentElement(listItem, [checkBox, label, editInput, editButton, deleteButton]);
     return listItem;
 }
 
-
-
-var addTask=function(){
-    console.log("Add Task...");
-    //Create a new list item with the text from the #new-task:
+function addTask(){
+    //Create a new list item with the text from the #new-task input:
     if (!taskInput.value) return;
-    var listItem=createNewTaskElement(taskInput.value);
+    var listItem = createNewTaskElement(taskInput.value);
 
-    //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
+
+    // Add eventHandlers to buttons in new listItem
     bindTaskEvents(listItem, taskCompleted);
 
+    // Delete text from input after adding new task
     taskInput.value="";
-
 }
 
 //Edit an existing task.
