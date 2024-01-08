@@ -104,38 +104,28 @@ function editTask() {
     
 };
 
-
-//Delete task.
-var deleteTask=function(){
-    console.log("Delete Task...");
-
+function deleteTask() {
     var listItem=this.parentNode;
     var ul=listItem.parentNode;
-    //Remove the parent list item from the ul.
     ul.removeChild(listItem);
-
 }
 
+function taskCompleted() {
 
-//Mark task completed
-var taskCompleted=function(){
-    console.log("Complete Task...");
-
-    //Append the task list item to the #completed-tasks
-    var listItem=this.parentNode;
-    var label = listItem.querySelector('.task-item__name');
+    //Append the task to the list with completed tasks
+    var listItem = this.parentNode;
+    var [label] = selectElements(listItem, ['.task-item__name']);
     completedTasksHolder.appendChild(listItem);
-    bindTaskEvents(listItem, taskIncomplete);
-    label.classList.toggle('task-item__name-complete');
 
+    // Add eventHandlers to buttons of task
+    bindTaskEvents(listItem, taskIncomplete);
+    toggleStates([label], ['task-item__name-complete']);
 }
 
 
-var taskIncomplete=function(){
-    console.log("Incomplete Task...");
-//Mark task as incomplete.
-    //When the checkbox is unchecked
-    //Append the task list item to the #incompleteTasks.
+function taskIncomplete() {
+
+    //Append the task to the todo-list
     var listItem=this.parentNode;
     var label = listItem.querySelector('.task-item__name');
     incompleteTaskHolder.appendChild(listItem);
