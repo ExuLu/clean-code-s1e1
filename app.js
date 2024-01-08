@@ -77,15 +77,13 @@ function toggleStates(elements, states) {
     elements.forEach((element, index) => element.classList.toggle(states[index]));
 }
 
-function toggleTextAndButton(editMode, label, editBtn, editInput) {
+function toggleText(editMode, label, editInput) {
     if (editMode) {
         // Add edited text to label
         label.innerText = editInput.value;
-        editBtn.innerText = "Edit";
     } else {
         // Add actual text to input
         editInput.value = label.innerText;
-        editBtn.innerText = "Save";
     }
 }
 
@@ -119,8 +117,10 @@ function editTask() {
     );
     var containsEditClass = listItem.classList.contains("task-item_edit-mode");
 
-    toggleTextAndButton(containsEditClass, label, editBtn, editInput);
-
+    editBtn.innerText = containsEditClass ? 'Edit' : 'Save';
+    
+    toggleText(containsEditClass, label, editInput);
+    
     toggleStates([listItem, editInput, label], ["task-item_edit-mode", 'task-item__input_edit-mode', 'task-item__name_edit-mode'])
     
 };
