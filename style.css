@@ -53,11 +53,11 @@
 
 .task-input,
 .task-completion,
-.main-button{
+.main-btn{
   outline: none;
 }
 
-.main-button {
+.main-btn {
   background: none;
   border: 0px;
   color: #888;
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-.main-button:hover {
+.main-btn:hover {
   color: #3a3a3a;
 }
 
@@ -136,13 +136,13 @@
   width: 226px;
 }
 
-.delete-button-img {
+.delete-btn-img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-.delete-button-img:hover {
+.delete-btn-img:hover {
   transform: rotateZ(0);
 }
 
