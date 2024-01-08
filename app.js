@@ -131,20 +131,13 @@ function taskCheck() {
 }
 
 
-var bindTaskEvents = function(taskListItem){
-    console.log("bind list item events");
-//select ListItems children
-    var checkBox=taskListItem.querySelector(".task-item__checkbox");
-    var editButton=taskListItem.querySelector(".task-item__edit-btn");
-    var deleteButton=taskListItem.querySelector(".task-item__delete-btn");
+function bindTaskEvents(taskListItem) {
 
+    const [checkBox, editButton, deleteButton] = selectElements(taskListItem, [".task-item__checkbox", ".task-item__edit-btn", ".task-item__delete-btn"])
 
-    //Bind editTask to edit button.
-    editButton.onclick=editTask;
-    //Bind deleteTask to delete button.
-    deleteButton.onclick=deleteTask;
-    //Bind taskCompleted to checkBoxEventHandler.
-    checkBox.onchange=taskCheck;
+    editButton.addEventListener('click', editTask);
+    deleteButton.addEventListener('click', deleteTask);
+    checkBox.addEventListener('change', taskCheck);
 }
 
 //cycle over incompleteTaskHolder ul list items
