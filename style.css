@@ -25,7 +25,7 @@
   }
 }
 
-.tasks {
+.main-section {
   display: block;
   width: 500px;
   margin: 0 auto 0;
@@ -37,7 +37,7 @@
   flex-grow: 1;
 }
 
-.new-task-row {
+.new-task__row-wrapper {
   display: flex;
 }
 
@@ -47,11 +47,11 @@
 }
 
 .task-item, 
-.task-title {
+.task__title {
   list-style: none;
 }
 
-.task-input,
+.task__input,
 .task-completion,
 .main-btn{
   outline: none;
@@ -71,7 +71,8 @@
   color: #3a3a3a;
 }
 
-.task-title {
+.new-task__title,
+.task-list__title {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -81,7 +82,7 @@
   text-transform: uppercase;
 }
 
-.task-input {
+.task__input {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -94,16 +95,16 @@
   color: #888;
 }
 
-.task-input:focus {
+.task__input:focus {
   color: #333;
 }
 
-.new-task-title {
+.new-task__title {
   display: block;
   margin: 0 0 20px;
 }
 
-.task-input#new-task {
+.task__input#new-task {
   width: 318px;
 }
 
@@ -132,7 +133,7 @@
   width: 226px;
 }
 
-.task-item > .task-input {
+.task-item > .task__input {
   width: 226px;
 }
 
@@ -151,11 +152,11 @@
   color: #888;
 }
 
-.task-item .task-input {
+.task-item .task__input {
   display: none;
 }
 
-.edit-mode .task-input {
+.edit-mode .task__input {
   display: inline-block;
   width: 224px;
 }

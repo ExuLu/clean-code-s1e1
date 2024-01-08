@@ -10,25 +10,25 @@
       <img class="header__img" src="./eisenhower-matrix.jpg" alt="the eisenhower matrix">
       <a class="header__link" href="https://goal-life.com/page/method/matrix-eisenhower">Want more details?</a>
     </header>
-    <main class="tasks">
-      <section id="add-new-task">
-        <p class="new-task-title task-title">Add Item</p>
-        <div class="new-task-row">
+    <main class="main-section">
+      <section id="add-new-task" class="new-task">
+        <p class="new-task__title">Add Item</p>
+        <div class="new-task__row-wrapper">
           <input 
             id="new-task"
-            class="task task-input"
+            class="task task__input"
             type="text"
           >
           <button class="add-btn main-btn">Add</button>
         </div>
       </section>
       <section class="todo-tasks-list">
-        <p class="task-title">Todo</p>
+        <p class="task-list__title">Todo</p>
         <ul id="incomplete-tasks" class="task-list">
           <li class="task-item">
             <input type="checkbox" class="task-completion">
             <label class="task task-name">Pay Bills</label>
-            <input type="text" class="task task-input">
+            <input type="text" class="task task__input">
             <button class="edit-btn main-btn">Edit</button>
             <button class="delete-btn main-btn">
               <img src="./remove.svg" class="delete-btn-img" alt="delete button">
@@ -40,7 +40,7 @@
             <input 
               type="text" 
               value="Go Shopping" 
-              class="task task-input"
+              class="task task__input"
             >
             <button class="edit-btn main-btn">Save</button>
             <button class="delete-btn main-btn">
@@ -50,12 +50,12 @@
         </ul>
       </section>
       <section class="complete-tasks-list">
-        <p class="task-title">Completed</p>
+        <p class="task-list__title">Completed</p>
         <ul id="completed-tasks" class="task-list">
           <li class="task-item">
             <input type="checkbox" class="task-completion" checked>
             <label class="task task-name">See the Doctor</label>
-            <input type="text" class="task task-input">
+            <input type="text" class="task task__input">
             <button class="edit-btn main-btn">Edit</button>
             <button class="delete-btn main-btn">
               <img src="./remove.svg" class="delete-btn-img" alt="delete button">
