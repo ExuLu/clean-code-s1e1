@@ -25,7 +25,7 @@ function createAttributes(element, attributes) {
     element.alt = attributes.alt || '';
 }
 
-function createNewTaskElement (taskString){
+function createNewTaskElement(taskString) {
 
     const [
         listItem,
@@ -59,7 +59,16 @@ function createNewTaskElement (taskString){
     return listItem;
 }
 
-function addTask(){
+function selectElements(parentElement, childElements) {
+    const selectedElements = childElements.map(element => parentElement.querySelector(element));
+    return selectedElements;
+}
+
+function toggleStates(elements, states) {
+    elements.forEach((element, index) => element.classList.toggle(states[index]));
+}
+
+function addTask() {
     //Create a new list item with the text from the #new-task input:
     if (!taskInput.value) return;
     var listItem = createNewTaskElement(taskInput.value);
@@ -73,35 +82,26 @@ function addTask(){
     taskInput.value="";
 }
 
-//Edit an existing task.
-
-var editTask=function(){
-    console.log("Edit Task...");
-    console.log("Change 'edit' to 'save'");
-
-
+function editTask() {
     var listItem=this.parentNode;
 
-    var editInput=listItem.querySelector('.task-item__input');
-    var label=listItem.querySelector(".task-item__name");
-    var editBtn=listItem.querySelector(".task-item__edit-btn");
+    const [editInput, label, editBtn] = selectElements (
+        listItem, ['.task-item__input', '.task-item__name', '.task-item__edit-btn']
+    );
     var containsClass=listItem.classList.contains("task-item_edit-mode");
-    //If class of the parent is .editmode
-    if(containsClass){
 
-        //switch to .editmode
-        //label becomes the inputs value.
+    if (containsClass) {
+        // Add edited text to label
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
-    }else{
+    } else {
+        // Add actual text to input
         editInput.value=label.innerText;
         editBtn.innerText="Save";
     }
 
-    //toggle .editmode on the parent.
-    listItem.classList.toggle("task-item_edit-mode");
-    editInput.classList.toggle('task-item__input_edit-mode');
-    label.classList.toggle('task-item__name_edit-mode');
+    toggleStates([listItem, editInput, label], ["task-item_edit-mode", 'task-item__input_edit-mode', 'task-item__name_edit-mode'])
+    
 };
 
 
