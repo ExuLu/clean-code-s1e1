@@ -129,7 +129,7 @@
   margin: 0 10px;
 }
 
-.task-item > label {
+.task-name {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
@@ -151,7 +151,7 @@
 }
 
 /* Completed */
-#completed-tasks label {
+#completed-tasks .task-name {
   text-decoration: line-through;
   color: #888;
 }
@@ -166,6 +166,6 @@
   width: 224px;
 }
 
-.edit-mode label {
+.edit-mode .task-name {
   display: none;
 }
