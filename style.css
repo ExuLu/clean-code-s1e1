@@ -53,11 +53,11 @@
 
 .task__input,
 .task-completion,
-.main-btn{
+.task__main-btn{
   outline: none;
 }
 
-.main-btn {
+.task__main-btn {
   background: none;
   border: 0px;
   color: #888;
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-.main-btn:hover {
+.task__main-btn:hover {
   color: #3a3a3a;
 }
 
