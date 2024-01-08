@@ -44,10 +44,10 @@ li,
   list-style: none;
 }
 input,
-button{
+.main-button{
   outline: none;
 }
-button {
+.main-button {
   background: none;
   border: 0px;
   color: #888;
@@ -56,7 +56,7 @@ button {
   font-family: Lato, sans-serif;
   cursor: pointer;
 }
-button:hover {
+.main-button:hover {
   color: #3a3a3a;
 }
 /* Heading */
@@ -120,12 +120,12 @@ li > label {
 li >    input[type="text"] {
   width: 226px;
 }
-button.delete-button img {
+.main-button.delete-button img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
-button.delete-button img:hover {
+.main-button.delete-button img:hover {
   transform: rotateZ(0);
 }
 
